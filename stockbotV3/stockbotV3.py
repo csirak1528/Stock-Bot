@@ -1,18 +1,25 @@
 import stock
-from keys import keys
+import json
 
-tickers = []
+tickers = [{
+    "ticker": "TSLA",
+    "type": "crypto"
+}]
 
-def getKeys():
-    global key
-    global secret
-    key = keys["key"]
-    secret = keys["secret"]
+bought = []
+sold = []
+
+
+def parse_cache():
+    with open('stockbotV3/cached_data.json') as json_file:
+        data = json.load(json_file)
+        return data
+
 
 def start():
-    getKeys()
+    for i in tickers:
+        pass
+
 
 if __name__ == "__main__":
     start()
-
-
