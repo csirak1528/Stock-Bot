@@ -1,18 +1,28 @@
 import numpy as np
 
+def sigmoid(x):
+    return 1.0/(1.0 + np.exp(-x))
+
+def sigmoid_prime(x):
+    return sigmoid(x)*(1.0-sigmoid(x))
 
 def tanh(x):
     return np.tanh(x)
-
 
 def tanh_prime(x):
     return 1.0 - x**2
 
 
-class NeuralNetwork(object):
-    def __init__(self, layers):
-        self.activation = tanh
-        self.activation_prime = tanh_prime
+class NeuralNetwork:
+
+    def __init__(self, layers, activation='tanh'):
+        if activation == 'sigmoid':
+            self.activation = sigmoid
+            self.activation_prime = sigmoid_prime
+        elif activation == 'tanh':
+            self.activation = tanh
+            self.activation_prime = tanh_prime
+
         self.weights = []
         for i in range(1, len(layers) - 1):
             r = 2*np.random.random((layers[i-1] + 1, layers[i] + 1)) - 1
@@ -21,7 +31,7 @@ class NeuralNetwork(object):
         r = 2*np.random.random((layers[i] + 1, layers[i+1])) - 1
         self.weights.append(r)
 
-    def fit(self, X, y, learning_rate=0.001, epochs=50000):
+    def fit(self, X, y, learning_rate=0.1, epochs=100000000):
         ones = np.atleast_2d(np.ones(X.shape[0]))
         X = np.concatenate((ones.T, X), axis=1)
         for k in range(epochs):

@@ -2,9 +2,19 @@ import stock
 import json
 
 tickers = [{
-    "ticker": "TSLA",
-    "type": "crypto"
-}]
+    "ticker": "GOOG",
+    "type": "stock"
+},
+    # {
+    # "ticker": "TSLA",
+    # "type": "stock", },
+    # {
+    # "ticker": "BTC-USD",
+    # "type": "stock"},
+    #  {
+    # "ticker": "ETC-USD",
+    # "type": "stock"}
+]
 
 bought = []
 sold = []

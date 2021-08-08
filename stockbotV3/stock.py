@@ -29,3 +29,5 @@ class Entity:
 
     def __str__(self):
         print(f"{self.bought_price} -> {self.prices[-1]}")
+
+
