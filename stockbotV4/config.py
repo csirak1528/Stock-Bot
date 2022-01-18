@@ -1,0 +1,3 @@
+APCA_API_BASE_URL="https://paper-api.alpaca.markets"
+APCA_API_KEY_ID="PKQRCLKWEYL8CJ7T8SW2"
+APCA_API_SECRET_KEY="GlwWaXXDslLd4xL8adS9nSLqFbTkE2iJoyjDpV0c"
